@@ -1,0 +1,44 @@
+# Avhengigheter og produksjonsbygg
+node_modules/
+dist/
+dist-ssr/
+
+# Lokale cacher og TypeScript-byggdata
+.vite/
+.cache/
+.npm/
+.eslintcache
+*.tsbuildinfo
+
+# Miljøvariabler og lokale overstyringer
+.env
+.env.*
+!.env.example
+*.local
+
+# Logger
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Testresultater
+coverage/
+playwright-report/
+test-results/
+.nyc_output/
+
+# Personlige editorinnstillinger og arbeidsfiler
+.vscode/
+.idea/
+*.code-workspace
+*.swp
+*.swo
+*~
+
+# Operativsystemfiler
+.DS_Store
+._*
+Thumbs.db
+Desktop.ini
