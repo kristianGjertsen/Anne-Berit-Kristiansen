@@ -1,11 +1,10 @@
 import heroImage from '../assets/hero-landscape.jpg'
-import heroSmall from '../assets/hero-landscape-small.jpg'
 
 export function IntroSection() {
   return (
     <section id="hjem" className="story-hero" aria-labelledby="intro-title" data-scene="opening">
       <div className="hero-artwork" data-layer="landscape">
-        <img src={heroImage} srcSet={`${heroSmall} 1200w, ${heroImage} 2560w`} sizes="100vw" alt="Malt landskap med fjell, grønne åser og små hus i varme jordtoner." fetchPriority="high" />
+        <img src={heroImage} srcSet={heroImage} sizes="100vw" alt="Malt landskap med fjell, grønne åser og små hus i varme jordtoner." fetchPriority="high" />
       </div>
       <div className="hero-shade" aria-hidden="true" data-layer="shade" />
       <div className="hero-copy" data-layer="title">
