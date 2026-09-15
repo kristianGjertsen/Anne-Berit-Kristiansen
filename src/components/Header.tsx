@@ -31,6 +31,7 @@ function Navigation({
 export function Header() {
   const [isOpen, setIsOpen] = useState(false)
   const menuButton = useRef<HTMLButtonElement>(null)
+  const headerRef = useRef<HTMLElement>(null)
   const cancelScroll = useRef<(() => void) | null>(null)
 
   useEffect(() => () => cancelScroll.current?.(), [])
@@ -48,7 +49,7 @@ export function Header() {
 
     const start = window.scrollY
     const end = Math.max(0, Math.min(
-      start + target.getBoundingClientRect().top,
+      start + target.getBoundingClientRect().top - (headerRef.current?.offsetHeight ?? 0),
       document.documentElement.scrollHeight - window.innerHeight,
     ))
     const distance = end - start
@@ -124,7 +125,7 @@ export function Header() {
   }, [isOpen])
 
   return (
-    <header className={`site-header ${isOpen ? 'menu-open' : ''}`}>
+    <header ref={headerRef} className={`site-header ${isOpen ? 'menu-open' : ''}`}>
       <Container>
         <div className="flex min-h-20 items-center justify-between gap-4 py-4">
           <a
