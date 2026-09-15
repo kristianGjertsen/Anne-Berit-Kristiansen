@@ -9,7 +9,7 @@ export function Container({
 }) {
   return (
     <div
-      className={`mx-auto w-full px-page ${className}`}
+      className={`px-page ${className}`}
     >
       {children}
     </div>

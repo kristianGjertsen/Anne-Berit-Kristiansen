@@ -2,16 +2,10 @@
 
 En personlig fortellingsside med landskapsbilde, portrett, veien videre og kontakt.
 
-## Struktur for animasjon
+## Bilder og oppsett
 
-Hver seksjon har et `data-scene`-attributt: `opening`, `portrait`, `journey` og
-`contact`. Elementer som kan animeres separat, er merket med `data-layer`.
-Åpningen har egne lag for landskap, skygge, tittel og scroll-invitasjon.
-Dette gir faste holdepunkter for senere scrollanimasjoner. Innholdet er synlig
-uten animasjon; respekter `prefers-reduced-motion` når bevegelse legges til.
-
-`src/assets/Hero-background.jpg` er originalbildet. Forsiden bruker de nedskalerte
-nettversjonene `hero-landscape.jpg` og `hero-landscape-small.jpg` via `srcSet`.
+Forsiden bruker `src/assets/hero-landscape.jpg`. De andre bildene er
+`about-landscape.jpg`, `profileImg.webp` og `Flower_Img.png`.
 
 Om meg bruker `about-landscape.jpg` i et sticky bakgrunnslag. Bildet låses ved
 skjermtoppen mens innholdet fortsetter å scrolle. Ved redusert bevegelse brukes
@@ -48,5 +42,5 @@ i komponentene. Mobil er utgangspunktet; `md:` tilpasser større skjermer og
 - `Container` gir felles sidebredde og innrykk til header og footer.
 - `src/tailwind.css` inneholder kun Tailwind-import og konfigurasjonsreferanse.
 - Blomstenes beregnede bevegelser settes i JavaScript; layout, maske og
-  responsive størrelser bruker Tailwind. `data-scene`, `data-layer` og
-  `data-flower-stem` er holdepunkter for animasjon, uavhengig av styling.
+  responsive størrelser bruker Tailwind. `data-flower-stem` brukes av
+  JavaScript for å finne stilkene som skal animeres.

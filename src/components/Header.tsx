@@ -11,7 +11,7 @@ function Navigation({
   className: string
 }) {
   const linkClass =
-    'inline-flex min-h-11 items-center text-md underline-offset-8 hover:underline'
+    'inline-flex min-h-11 items-center text-base underline-offset-8 hover:underline'
 
   return (
     <nav aria-label="Hovednavigasjon" className={className}>
@@ -69,7 +69,7 @@ export function Header() {
     }
 
     // Longer journeys leave time to see the flowers open as the page scrolls.
-    const duration = Math.min(3000, Math.max(2200, Math.abs(distance) / 1))
+    const duration = Math.min(3000, Math.max(2200, Math.abs(distance)))
     const started = performance.now()
     let frame = 0
     const cancel = () => {
@@ -125,14 +125,14 @@ export function Header() {
   }, [isOpen])
 
   return (
-    <header ref={headerRef} className={`fixed inset-x-0 top-0 z-20 text-header ${isOpen ? 'bg-background' : 'bg-transparent'}`}>
+    <header ref={headerRef} className={`fixed inset-x-0 top-0 z-20 text-header ${isOpen ? 'bg-background' : ''}`}>
       <Container>
-        <div className="flex min-h-20 items-center justify-between gap-4 border-b-2 border-foreground/50 py-4 md:min-h-[100px]">
+        <div className="flex min-h-20 items-center justify-between gap-4 border-b-2 border-foreground/50 py-4 md:min-h-25">
           <a
             href="#hjem"
             aria-label="Anne Berit Kristiansen – hjem"
             onClick={onNavigate}
-            className="font-serif text-[2.2rem] font-semibold"
+            className="font-serif text-4xl font-semibold"
           >
             ABK
           </a>
@@ -144,7 +144,7 @@ export function Header() {
             aria-controls="mobile-menu"
             aria-label={isOpen ? 'Lukk hovedmenyen' : 'Åpne hovedmenyen'}
             onClick={() => setIsOpen(!isOpen)}
-            className="flex min-h-11 items-center gap-3 px-1 text-sm md:hidden"
+            className="flex min-h-11 cursor-pointer items-center gap-3 px-1 text-sm md:hidden"
           >
             {isOpen ? 'Lukk' : 'Meny'}
             <span aria-hidden="true" className="text-lg">

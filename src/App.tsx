@@ -7,7 +7,10 @@ import { ContactSection } from './sections/ContactSection'
 
 export function App() {
   return (
-    <div className="flex min-h-dvh flex-col [&_a]:wrap-anywhere [&_a]:[-webkit-tap-highlight-color:transparent] [&_button]:cursor-pointer [&_button]:[-webkit-tap-highlight-color:transparent] [&_:focus-visible]:outline-2 [&_:focus-visible]:outline-offset-[5px] [&_:focus-visible]:outline-foreground">
+    <div className="
+      flex min-h-dvh flex-col [&_a]:wrap-anywhere [&_:focus-visible]:outline-2
+      [&_:focus-visible]:outline-offset-4 [&_:focus-visible]:outline-foreground
+    ">
       <title>Anne Berit Kristiansen</title>
       <meta
         name="description"
@@ -15,7 +18,10 @@ export function App() {
       />
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:bg-foreground focus:px-5 focus:py-3 focus:text-background"
+        className="
+          sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50
+          focus:bg-foreground focus:px-5 focus:py-3 focus:text-background
+        "
       >
         Hopp til innhold
       </a>
