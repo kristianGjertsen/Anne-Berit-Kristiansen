@@ -11,7 +11,7 @@ function Navigation({
   className: string
 }) {
   const linkClass =
-    'inline-flex min-h-11 items-center text-sm underline-offset-8 hover:underline'
+    'inline-flex min-h-11 items-center text-md underline-offset-8 hover:underline'
 
   return (
     <nav aria-label="Hovednavigasjon" className={className}>
@@ -125,14 +125,14 @@ export function Header() {
   }, [isOpen])
 
   return (
-    <header ref={headerRef} className={`site-header ${isOpen ? 'menu-open' : ''}`}>
+    <header ref={headerRef} className={`fixed inset-x-0 top-0 z-20 text-header ${isOpen ? 'bg-background' : 'bg-transparent'}`}>
       <Container>
-        <div className="flex min-h-20 items-center justify-between gap-4 py-4">
+        <div className="flex min-h-20 items-center justify-between gap-4 border-b-2 border-foreground/50 py-4 md:min-h-[100px]">
           <a
             href="#hjem"
             aria-label="Anne Berit Kristiansen – hjem"
             onClick={onNavigate}
-            className="text-base font-semibold tracking-tight"
+            className="font-serif text-[2.2rem] font-semibold"
           >
             ABK
           </a>

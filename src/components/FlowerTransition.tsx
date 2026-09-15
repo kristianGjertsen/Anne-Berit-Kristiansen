@@ -1,6 +1,5 @@
 import { useEffect, useRef, type CSSProperties, type RefObject } from 'react'
 import flowerImage from '../assets/Flower_Img.png'
-import './FlowerTransition.css'
 
 // Position, size and movement are deliberately different for each stem.
 const flowers = [
@@ -31,7 +30,7 @@ export function FlowerTransition({ sceneRef }: { sceneRef: RefObject<HTMLElement
     if (!root) return
 
     const motion = window.matchMedia('(prefers-reduced-motion: reduce)')
-    const stems = Array.from(root.querySelectorAll<HTMLImageElement>('.flower-transition__stem'))
+    const stems = Array.from(root.querySelectorAll<HTMLImageElement>('[data-flower-stem]'))
     let frame = 0
 
     const render = () => {
@@ -91,12 +90,13 @@ export function FlowerTransition({ sceneRef }: { sceneRef: RefObject<HTMLElement
   }, [sceneRef])
 
   return (
-    <div ref={rootRef} className="flower-transition" aria-hidden="true" data-scene="flower-transition">
-      <div className="flower-transition__stage">
+    <div ref={rootRef} className="pointer-events-none absolute inset-0 z-5 [--flower-opacity:0] motion-reduce:hidden" aria-hidden="true" data-scene="flower-transition">
+      <div className="absolute inset-x-0 top-[-35svh] h-[135svh] overflow-hidden opacity-[var(--flower-opacity)] [mask-image:linear-gradient(transparent,#000_12%,#000_78%,transparent)]">
         {flowers.map((flower, index) => (
           <img
             key={index}
-            className="flower-transition__stem"
+            data-flower-stem
+            className="absolute top-[10%] h-auto w-[clamp(150px,var(--flower-size),240px)] max-w-none origin-[50%_85%] select-none md:w-[clamp(150px,var(--flower-size),460px)]"
             src={flowerImage}
             alt=""
             width={1024}

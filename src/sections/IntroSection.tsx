@@ -2,18 +2,17 @@ import heroImage from '../assets/hero-landscape.jpg'
 
 export function IntroSection() {
   return (
-    <section id="hjem" className="story-hero" aria-labelledby="intro-title" data-scene="opening">
-      <div className="hero-artwork" data-layer="landscape">
-        <img src={heroImage} srcSet={heroImage} sizes="100vw" alt="Malt landskap med fjell, grønne åser og små hus i varme jordtoner." fetchPriority="high" />
+    <section id="hjem" className="relative isolate flex min-h-[max(700px,100svh)] flex-col justify-end px-page pt-40 pb-6 text-cream md:min-h-[max(740px,100svh)] md:pt-[180px] md:pb-8" aria-labelledby="intro-title" data-scene="opening">
+      <div className="absolute inset-0 -z-2 overflow-hidden" data-layer="landscape">
+        <img className="h-full w-full object-cover object-[48%_center] md:object-[center_44%] min-[1600px]:object-[center_55%]" src={heroImage} srcSet={heroImage} sizes="100vw" alt="Malt landskap med fjell, grønne åser og små hus i varme jordtoner." fetchPriority="high" />
       </div>
-      <div className="hero-shade" aria-hidden="true" data-layer="shade" />
-      <div className="hero-copy" data-layer="title">
-        <p className="eyebrow">Et lite innblikk i livet mitt</p>
-        <h1 id="intro-title">Anne Berit<br /><em>Kristiansen</em></h1>
-        <p className="hero-description">Reiseleder på heltid, pensjonist på deltid.</p>
+      <div className="absolute inset-0 -z-1 overflow-hidden bg-[linear-gradient(180deg,#f4f1e838_0%,transparent_25%,#102c256b_60%,#102c25c4_100%)]" aria-hidden="true" data-layer="shade" />
+      <div className="pb-14 md:pb-[clamp(3rem,8vh,7rem)]" data-layer="title">
+        <h1 id="intro-title" className="my-6 font-serif text-[clamp(3.6rem,13vw,6rem)] leading-[.94] font-normal tracking-[-.06em] md:text-[clamp(4.3rem,8.8vw,9rem)]">Anne Berit<br /><em>Kristiansen</em></h1>
+        <p className="text-[clamp(1rem,1.5vw,1.3rem)] leading-[1.55]">Reiseleder på heltid, pensjonist på deltid.</p>
       </div>
-      <div className="hero-bottom" data-layer="invitation">
-        <a href="#om-meg" className="scroll-invitation"><span className="scroll-arrow" aria-hidden="true">↓</span> Bli med videre</a>
+      <div className="flex items-center justify-between gap-6 border-t border-cream/29 pt-6" data-layer="invitation">
+        <a href="#om-meg" className="group inline-flex items-center gap-4 text-[.78rem]"><span className="grid size-11 place-items-center rounded-full border border-current text-xl transition-colors duration-200 group-hover:bg-cream/13 motion-reduce:transition-none" aria-hidden="true">↓</span> Bli med videre</a>
       </div>
     </section>
   )

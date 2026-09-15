@@ -2,8 +2,8 @@ import { Container } from './Container'
 
 export function Footer() {
   return (
-    <footer className="site-footer mt-auto border-t border-border py-6">
-      <Container className="flex flex-wrap items-center justify-between gap-4 text-sm">
+    <footer className="mt-auto border-t border-border py-6">
+      <Container className="flex flex-wrap items-center justify-between gap-4 text-xs">
         <a href="#hjem" className="font-medium">
           Anne Berit Kristiansen
         </a>
