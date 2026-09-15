@@ -8,7 +8,7 @@ import { ContactSection } from './sections/ContactSection'
 export function App() {
   return (
     <div className="
-      flex min-h-dvh flex-col [&_a]:wrap-anywhere [&_:focus-visible]:outline-2
+      flex min-h-dvh flex-col overflow-x-clip [&_a]:wrap-anywhere [&_:focus-visible]:outline-2
       [&_:focus-visible]:outline-offset-4 [&_:focus-visible]:outline-foreground
     ">
       <title>Anne Berit Kristiansen</title>

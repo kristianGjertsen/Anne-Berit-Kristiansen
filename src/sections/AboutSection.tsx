@@ -7,30 +7,47 @@ export function AboutSection() {
   const sceneRef = useRef<HTMLElement>(null)
 
   return (
-    <section ref={sceneRef} className="relative isolate" aria-labelledby="about-title">
-      <div className="sticky top-0 isolate h-svh motion-reduce:absolute motion-reduce:inset-0 motion-reduce:h-full">
+    <section
+      ref={sceneRef}
+      className="relative isolate z-10"
+      aria-labelledby="about-title"
+    >
+      {/* Navigation lands near the end of the reveal, while the scene is still pinned. */}
+      <span id="om-meg" className="absolute top-[120svh] motion-reduce:top-0" />
+      <div className="sticky top-0 isolate min-h-svh motion-reduce:relative">
         <div className="absolute inset-0 -z-2 overflow-hidden" aria-hidden="true">
-          <img className="h-full w-full scale-105 object-cover motion-reduce:scale-100" src={aboutImage} alt="Malt landskap med fjell, grønne åser og små hus i varme jordtoner." />
+          <img className="h-full w-full scale-105 object-cover" src={aboutImage} alt="" />
         </div>
-        <div className="absolute inset-0 -z-1 overflow-hidden bg-[linear-gradient(90deg,#23392f24,#f4f1e81a)]" aria-hidden="true" />
+        <div
+          className="absolute inset-0 -z-1 bg-[linear-gradient(90deg,#23392f24,#f4f1e81a)]"
+          aria-hidden="true"
+        />
+        <div className="
+          grid min-h-svh items-center justify-items-center gap-6 px-section pt-28 pb-8
+          md:grid-cols-2 md:gap-12 md:pt-32 md:pb-12
+        ">
+          <div className="w-full max-w-[min(440px,30svh)] bg-background p-3 shadow-xl md:max-w-[min(440px,48svh)]">
+            <img
+              className="aspect-[4/5] w-full object-cover"
+              src={profileImg}
+              alt="Anne Berit Kristiansen"
+              width={756}
+              height={756}
+              loading="lazy"
+            />
+            <span className="mt-3 block text-xs tracking-widest">Anne Berit Kristiansen</span>
+          </div>
+          <div className="w-full bg-background/95 p-6 md:p-10">
+            <h2 id="about-title" className="mb-6 font-serif text-5xl leading-[1.1] tracking-tighter md:text-7xl">
+              "Tittel"
+            </h2>
+            <p className="max-w-sm leading-7 text-muted">Informasjon...</p>
+          </div>
+        </div>
         <FlowerTransition sceneRef={sceneRef} />
       </div>
-      <div id="om-meg" className="
-        relative z-6 mt-[35svh] grid min-h-svh grid-cols-1 items-center gap-12 px-section
-        py-section-y md:grid-cols-2 md:gap-[clamp(3rem,10vw,10rem)] motion-reduce:mt-0
-      ">
-        <div className="w-[85%] max-w-[440px] bg-background px-3 pt-3 pb-4 shadow-[0_16px_60px_#182b3026]">
-          <img className="aspect-[4/5] w-full object-cover" src={profileImg} alt="Anne Berit Kristiansen" width={756} height={756} loading="lazy" />
-          <span className="mt-4 block px-1.5 text-xs tracking-widest">Anne Berit Kristiansen</span>
-        </div>
-        <div className="bg-background/95 p-[clamp(1.5rem,3vw,3rem)]">
-          <h2 id="about-title" className="
-            mt-6 mb-8 font-serif text-[clamp(3rem,10vw,4.5rem)] leading-[1.1] font-normal
-            tracking-tighter md:text-[clamp(3rem,5.2vw,5.5rem)]
-          ">"Tittel"</h2>
-          <p className="mt-4 max-w-[390px] leading-7 text-muted">Informasjon...</p>
-        </div>
-      </div>
+      {/* A real spacer keeps the sticky layer pinned throughout the opening. */}
+      <div className="h-[120svh] motion-reduce:hidden" aria-hidden="true" />
     </section>
   )
 }
