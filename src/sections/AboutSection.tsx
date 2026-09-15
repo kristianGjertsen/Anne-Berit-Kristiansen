@@ -1,37 +1,31 @@
-import { Section } from '../components/Section'
+import { useRef } from 'react'
+import { FlowerTransition } from '../components/FlowerTransition'
+import profileImg from '../assets/profileImg.webp'
+import aboutImage from '../assets/about-landscape.jpg'
 
 export function AboutSection() {
+  const sceneRef = useRef<HTMLElement>(null)
+
   return (
-    <Section
-      id="om-meg"
-      labelledBy="about-title"
-      className="border-t border-border"
-    >
-      <p className="mb-6 text-sm text-muted">02 / Om meg</p>
-      <div className="grid gap-6 md:grid-cols-2 md:gap-16">
-        <h2
-          id="about-title"
-          className="text-[clamp(1.75rem,3.2vw,2.5rem)] font-medium leading-[1.18] tracking-[-0.04em] max-w-md"
-        >
-          Litt om mennesket bak.
-        </h2>
-        <div className="max-w-lg space-y-5 leading-7 text-muted">
-          <p>
-            Jeg liker å utforske ideer, lære underveis og gjøre det kompliserte
-            litt enklere.
-          </p>
-          <p>
-            Denne siden er en begynnelse. Her blir det plass til det jeg lager,
-            det jeg lærer og veien videre.
-          </p>
-          <a
-            href="#kontakt"
-            className="underline decoration-border underline-offset-[5px] hover:decoration-current inline-flex min-h-11 items-center text-sm text-foreground"
-          >
-            Videre til kontakt ↓
-          </a>
+    <section ref={sceneRef} id="om-meg" className="about-scene" aria-labelledby="about-title" data-scene="portrait">
+      <div className="about-sticky-visual">
+        <div className="about-artwork" data-layer="landscape" aria-hidden="true">
+          <img src={aboutImage} alt="Malt landskap med fjell, grønne åser og små hus i varme jordtoner." />
+        </div>
+        <div className="about-shade" data-layer="shade" aria-hidden="true" />
+        <FlowerTransition sceneRef={sceneRef} />
+      </div>
+      <div className="story-about story-section">
+        <div className="portrait-frame" data-layer="portrait">
+          <img src={profileImg} alt="Anne Berit Kristiansen" width={756} height={756} loading="lazy" />
+          <span className="portrait-caption">Anne Berit Kristiansen</span>
+        </div>
+        <div className="about-copy" data-layer="copy">
+          <p className="eyebrow">Hyggelig at du er her</p>
+          <h2 id="about-title">"Tittel"</h2>
+          <p>Jeg liker å utforske ideer, lære underveis og gjøre det kompliserte litt enklere.</p>
         </div>
       </div>
-    </Section>
+    </section>
   )
 }

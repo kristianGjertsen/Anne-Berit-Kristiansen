@@ -11,7 +11,7 @@ function Navigation({
   className: string
 }) {
   const linkClass =
-    'inline-flex min-h-11 items-center text-sm text-muted underline-offset-8 hover:underline'
+    'inline-flex min-h-11 items-center text-sm underline-offset-8 hover:underline'
 
   return (
     <nav aria-label="Hovednavigasjon" className={className}>
@@ -52,15 +52,16 @@ export function Header() {
   }, [isOpen])
 
   return (
-    <header className="border-b border-border">
+    <header className={`site-header ${isOpen ? 'menu-open' : ''}`}>
       <Container>
         <div className="flex min-h-20 items-center justify-between gap-4 py-4">
           <a
             href="#hjem"
+            aria-label="Anne Berit Kristiansen – hjem"
             onClick={() => flushSync(() => setIsOpen(false))}
             className="text-base font-semibold tracking-tight"
           >
-            Hjem
+            ABK<span className="brand-dot">.</span>
           </a>
           <Navigation className="hidden gap-7 md:flex" />
           <button
