@@ -7,7 +7,7 @@ export function AboutSection() {
   const sceneRef = useRef<HTMLElement>(null)
 
   return (
-    <section ref={sceneRef} id="om-meg" className="about-scene" aria-labelledby="about-title" data-scene="portrait">
+    <section ref={sceneRef} className="about-scene" aria-labelledby="about-title" data-scene="portrait">
       <div className="about-sticky-visual">
         <div className="about-artwork" data-layer="landscape" aria-hidden="true">
           <img src={aboutImage} alt="Malt landskap med fjell, grønne åser og små hus i varme jordtoner." />
@@ -15,7 +15,7 @@ export function AboutSection() {
         <div className="about-shade" data-layer="shade" aria-hidden="true" />
         <FlowerTransition sceneRef={sceneRef} />
       </div>
-      <div className="story-about story-section">
+      <div id="om-meg" className="story-about story-section">
         <div className="portrait-frame" data-layer="portrait">
           <img src={profileImg} alt="Anne Berit Kristiansen" width={756} height={756} loading="lazy" />
           <span className="portrait-caption">Anne Berit Kristiansen</span>
@@ -23,7 +23,7 @@ export function AboutSection() {
         <div className="about-copy" data-layer="copy">
           <p className="eyebrow">Hyggelig at du er her</p>
           <h2 id="about-title">"Tittel"</h2>
-          <p>Jeg liker å utforske ideer, lære underveis og gjøre det kompliserte litt enklere.</p>
+          <p>Informasjon...</p>
         </div>
       </div>
     </section>

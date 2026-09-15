@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, type MouseEvent } from 'react'
 import { flushSync } from 'react-dom'
 import { Container } from './Container'
 
@@ -7,7 +7,7 @@ function Navigation({
   onNavigate,
   className,
 }: {
-  onNavigate?: () => void
+  onNavigate: (event: MouseEvent<HTMLAnchorElement>) => void
   className: string
 }) {
   const linkClass =
@@ -31,6 +31,78 @@ function Navigation({
 export function Header() {
   const [isOpen, setIsOpen] = useState(false)
   const menuButton = useRef<HTMLButtonElement>(null)
+  const cancelScroll = useRef<(() => void) | null>(null)
+
+  useEffect(() => () => cancelScroll.current?.(), [])
+
+  const onNavigate = (event: MouseEvent<HTMLAnchorElement>) => {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return
+
+    const hash = event.currentTarget.hash
+    const target = document.getElementById(hash.slice(1))
+    if (!target) return
+
+    event.preventDefault()
+    cancelScroll.current?.()
+    flushSync(() => setIsOpen(false))
+
+    const start = window.scrollY
+    const end = Math.max(0, Math.min(
+      start + target.getBoundingClientRect().top,
+      document.documentElement.scrollHeight - window.innerHeight,
+    ))
+    const distance = end - start
+    if (window.location.hash !== hash) window.history.pushState(null, '', hash)
+
+    const focusTarget = () => {
+      const hadTabIndex = target.hasAttribute('tabindex')
+      if (!hadTabIndex) target.setAttribute('tabindex', '-1')
+      target.focus({ preventScroll: true })
+      if (!hadTabIndex) target.removeAttribute('tabindex')
+    }
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || Math.abs(distance) < 1) {
+      window.scrollTo({ top: end, behavior: 'instant' })
+      focusTarget()
+      return
+    }
+
+    // Longer journeys leave time to see the flowers open as the page scrolls.
+    const duration = Math.min(3000, Math.max(2200, Math.abs(distance) / 1))
+    const started = performance.now()
+    let frame = 0
+    const cancel = () => {
+      window.cancelAnimationFrame(frame)
+      window.removeEventListener('wheel', cancel)
+      window.removeEventListener('touchstart', cancel)
+      window.removeEventListener('pointerdown', cancel)
+      window.removeEventListener('keydown', onKeyDown)
+      window.removeEventListener('popstate', cancel)
+      cancelScroll.current = null
+    }
+    const onKeyDown = (keyEvent: KeyboardEvent) => {
+      if (['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' ', 'Escape', 'Tab'].includes(keyEvent.key)) cancel()
+    }
+    const tick = (now: number) => {
+      const progress = Math.min(1, (now - started) / duration)
+      const eased = progress * progress * (3 - 2 * progress)
+      window.scrollTo({ top: start + distance * eased, behavior: 'instant' })
+      if (progress < 1) {
+        frame = window.requestAnimationFrame(tick)
+      } else {
+        cancel()
+        focusTarget()
+      }
+    }
+
+    cancelScroll.current = cancel
+    window.addEventListener('wheel', cancel, { passive: true })
+    window.addEventListener('touchstart', cancel, { passive: true })
+    window.addEventListener('pointerdown', cancel, { passive: true })
+    window.addEventListener('keydown', onKeyDown)
+    window.addEventListener('popstate', cancel)
+    frame = window.requestAnimationFrame(tick)
+  }
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
@@ -58,12 +130,12 @@ export function Header() {
           <a
             href="#hjem"
             aria-label="Anne Berit Kristiansen – hjem"
-            onClick={() => flushSync(() => setIsOpen(false))}
+            onClick={onNavigate}
             className="text-base font-semibold tracking-tight"
           >
             ABK
           </a>
-          <Navigation className="hidden gap-7 md:flex" />
+          <Navigation onNavigate={onNavigate} className="hidden gap-7 md:flex" />
           <button
             ref={menuButton}
             type="button"
@@ -85,7 +157,7 @@ export function Header() {
           className="border-t border-border py-3 md:hidden"
         >
           <Navigation
-            onNavigate={() => flushSync(() => setIsOpen(false))}
+            onNavigate={onNavigate}
             className="flex flex-col items-start gap-1"
           />
         </div>

@@ -30,6 +30,7 @@ h1 em, h2 em { font-weight: 400; }
 .about-sticky-visual { position: sticky; top: 0; height: 100svh; isolation: isolate; }
 .story-about { position: relative; z-index: 6; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(3rem, 10vw, 10rem); align-items: center; min-height: 100svh; margin-top: 35svh; pointer-events: none; }
 .story-about > * { pointer-events: auto; }
+.story-about { scroll-margin-top: 0; }
 .about-artwork, .about-shade { position: absolute; inset: 0; z-index: -2; overflow: hidden; pointer-events: none; }
 .about-artwork img { width: 100%; height: 100%; object-fit: cover; object-position: 50% center; transform: scale(1.055); transition: transform 4s cubic-bezier(.2, .6, .3, 1); }
 .story-about[data-entered='true'] .about-artwork img { transform: scale(1); }
