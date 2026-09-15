@@ -61,7 +61,7 @@ export function Header() {
             onClick={() => flushSync(() => setIsOpen(false))}
             className="text-base font-semibold tracking-tight"
           >
-            ABK<span className="brand-dot">.</span>
+            ABK
           </a>
           <Navigation className="hidden gap-7 md:flex" />
           <button
