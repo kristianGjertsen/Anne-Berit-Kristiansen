@@ -35,13 +35,37 @@ export function AboutSection() {
               height={756}
               loading="lazy"
             />
-            <span className="mt-3 block text-xs tracking-widest">Anne Berit Kristiansen</span>
           </div>
           <div className="w-full bg-background/95 p-6 md:p-10">
             <h2 id="about-title" className="mb-6 font-serif text-5xl leading-[1.1] tracking-tighter md:text-7xl">
-              "Tittel"
+              Litt om meg
             </h2>
-            <p className="max-w-sm leading-7 text-muted">Informasjon...</p>
+            <div className="space-y-4 leading-7 text-muted">
+              <p>
+                Reiseglede og møter med nye mennesker har fulgt meg gjennom hele
+                arbeidslivet. Jeg har vært reiseleder på bussrundturer i Europa,
+                hatt ansvar for langtidsreisene på hovedkontoret til Star Tour og
+                jobbet ved Turistinformasjonen i Oslo og som leder for Oslo
+                Guideservice. De siste årene har jeg jobbet med markedsføring og
+                annonsesalg i mediebransjen, særlig for kunder innen kultur og reiseliv.
+              </p>
+              <p>
+                Jeg er glad i å oppdage nye steder og bli kjent med menneskene jeg
+                møter underveis. Frankrike har en helt spesiell plass i hjertet
+                mitt etter at jeg bodde i Montpellier i Sør-Frankrike. Italia og
+                Portugal er også land jeg gjerne vender tilbake til.
+              </p>
+              <p>
+                Når jeg ikke er på reise, liker jeg å holde meg i aktivitet med
+                trening og lange turer – enten langs sjøen, i skogen eller på fjellet.
+              </p>
+              <p>
+                Jeg trives sammen med andre og setter pris på gode samtaler og
+                felles opplevelser. Som reiseleder er jeg opptatt av at du skal
+                føle deg godt ivaretatt og få mest mulig ut av turen. Jeg vil at
+                alle skal kjenne seg velkomne og som en del av reisefølget.
+              </p>
+            </div>
           </div>
         </div>
         <FlowerTransition sceneRef={sceneRef} />

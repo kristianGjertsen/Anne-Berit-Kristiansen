@@ -47,14 +47,6 @@ export function JourneySection() {
           {word('Jeg')} {word('gleder')} {word('meg')} {word('alltid')} {word('til')}{' '}
           <em className="text-accent">{word('neste')} {word('tur')}</em>
         </h2>
-        <div className="flex items-center gap-4 md:gap-10">
-          <span className="hidden h-px w-[15%] bg-background/30 md:block" aria-hidden="true" />
-          <a href="#kontakt" className="
-            ml-auto grid size-14 shrink-0 place-items-center rounded-full border border-current
-            text-xl transition-colors duration-200 hover:bg-background/10
-            motion-reduce:transition-none
-          " aria-label="Videre til kontakt">↓</a>
-        </div>
       </div>
     </section>
   )

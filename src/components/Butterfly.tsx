@@ -4,8 +4,8 @@ import body from '../assets/butterfly/butterfly_body.png'
 
 // Speed in cycles/second, amplitude in degrees, transition time in seconds.
 const FLAP = {
-  idle: { speed: 0.55, amplitude: 12 },
-  flying: { speed: 2.5, amplitude: 52 },
+  idle: { speed: 0.8, amplitude: 12 },
+  flying: { speed: 1, amplitude: 52 },
   transition: 0.35,
   perspective: 2400,
 }
