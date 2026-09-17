@@ -20,12 +20,6 @@ export function IntroSection() {
         ">Anne Berit<br /><em>Kristiansen</em></h1>
         <p className="text-[clamp(1rem,1.5vw,1.3rem)] leading-relaxed">Reiseleder på heltid, pensjonist på deltid.</p>
       </div>
-      <div className="border-t border-cream/30 pt-6">
-        <a href="#om-meg" className="group inline-flex items-center gap-4 text-xs"><span className="
-          grid size-11 place-items-center rounded-full border border-current text-xl
-          transition-colors duration-200 group-hover:bg-cream/15 motion-reduce:transition-none
-        " aria-hidden="true">↓</span> Bli med videre</a>
-      </div>
     </section>
   )
 }

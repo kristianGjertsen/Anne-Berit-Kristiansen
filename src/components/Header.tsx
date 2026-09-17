@@ -11,7 +11,7 @@ function Navigation({
   className: string
 }) {
   const linkClass =
-    'inline-flex min-h-11 items-center text-base underline-offset-8 hover:underline'
+    'inline-flex min-h-11 items-center text-xl underline-offset-8 hover:underline'
 
   return (
     <nav aria-label="Hovednavigasjon" className={className}>
@@ -125,14 +125,17 @@ export function Header() {
   }, [isOpen])
 
   return (
-    <header ref={headerRef} className={`fixed inset-x-0 top-0 z-20 text-header ${isOpen ? 'bg-background' : ''}`}>
+    <header
+      ref={headerRef}
+      className={`fixed rounded-xl ml-4 mr-4 inset-x-0 top-0 z-20 text-header backdrop-blur-2xl backdrop-saturate-100 bg-background/20`}
+    >
       <Container>
-        <div className="flex min-h-20 items-center justify-between gap-4 border-b-2 border-foreground/50 py-4 md:min-h-25">
+        <div className="flex min-h-16 items-center justify-between gap-4 border-b border-foreground/15 py-1.5 md:min-h-18 md:py-2">
           <a
             href="#hjem"
-            aria-label="Anne Berit Kristiansen – hjem"
+            aria-label="Anne Berit Kristiansen - hjem"
             onClick={onNavigate}
-            className="font-serif text-4xl font-semibold"
+            className="font-serif text-5xl leading-none font-semibold"
           >
             ABK
           </a>
@@ -144,10 +147,10 @@ export function Header() {
             aria-controls="mobile-menu"
             aria-label={isOpen ? 'Lukk hovedmenyen' : 'Åpne hovedmenyen'}
             onClick={() => setIsOpen(!isOpen)}
-            className="flex min-h-11 cursor-pointer items-center gap-3 px-1 text-sm md:hidden"
+            className="flex min-h-11 cursor-pointer items-center gap-3 px-1 text-xl md:hidden"
           >
             {isOpen ? 'Lukk' : 'Meny'}
-            <span aria-hidden="true" className="text-lg">
+            <span aria-hidden="true" className="text-2xl">
               {isOpen ? '×' : '☰'}
             </span>
           </button>

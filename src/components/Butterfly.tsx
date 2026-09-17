@@ -4,15 +4,24 @@ import body from '../assets/butterfly/butterfly_body.png'
 
 // Speed in cycles/second, amplitude in degrees, transition time in seconds.
 const FLAP = {
-  idle: { speed: 0.55, amplitude: 12 },
-  flying: { speed: 2.5, amplitude: 52 },
+  idle: { speed: 0.7, amplitude: 33 },
+  flying: { speed: 1, amplitude: 52 },
   transition: 0.35,
   perspective: 2400,
+  openAngle: 10,
 }
 
 const wingStyle: CSSProperties = {
   transformBox: 'view-box',
   transformOrigin: '620px 795px',
+}
+
+function wingAngle(phase: number, amplitude: number) {
+  // Smooth velocity and acceleration through both turns and the cycle boundary.
+  // A small harmonic shortens the turns without introducing sharp corners.
+  const stroke = (Math.cos(phase) + 0.06 * Math.cos(3 * phase)) / 1.06
+  // A slight resting tilt keeps movement visible when the wings are open.
+  return FLAP.openAngle + amplitude * (0.5 - 0.5 * stroke)
 }
 
 type ButterflyProps = {
@@ -55,7 +64,7 @@ export default function Butterfly({ className = '', style, label, flying = false
       amplitude += (target.amplitude - amplitude) * blend
       // Integrate speed instead of restarting the cycle when the mode changes.
       anglePhase = (anglePhase + delta * speed * Math.PI * 2) % (Math.PI * 2)
-      const angle = amplitude * (0.5 - 0.5 * Math.cos(anglePhase))
+      const angle = wingAngle(anglePhase, amplitude)
       const transform = `perspective(${FLAP.perspective}px) rotate(38deg) rotateY(${angle}deg) rotate(-38deg)`
       left.style.transform = transform
       // The existing reflected parent mirrors this rotation for the right wing.
@@ -102,7 +111,7 @@ export default function Butterfly({ className = '', style, label, flying = false
       <g transform="translate(620 795) rotate(38) scale(-1 1) rotate(-38) translate(-620 -795)">
         <image ref={rightWingRef} style={wingStyle} href={wing} x={-242} y={-65} width={1254} height={1254} />
       </g>
-      <image href={body} x={40} y={70} width={1254} height={1254} />
+      <image href={body} x={40} y={70} width={1254} height={1254}/>
     </svg>
   )
 }
