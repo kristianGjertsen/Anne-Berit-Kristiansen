@@ -1,0 +1,60 @@
+{
+  "id": "anne-berit-kristiansen",
+  "year": 2026,
+  "sortDate": "2026-09-17",
+  "img": "image.png",
+  "aksForUseWebsite": true,
+  "languages": [
+    "TypeScript",
+    "React",
+    "Tailwind CSS"
+  ],
+  "imgAlt": "Forhåndsvisning av nettsiden til Anne Berit Kristiansen",
+  "content": {
+    "no": {
+      "title": "Anne Berit Kristiansen",
+      "shortText": "En enkel nettside med historiefortelling, laget for en kunde gjennom enkeltpersonforetaket mitt.",
+      "longText": "En enkel, responsiv nettside laget for Anne Berit Kristiansen som et kundeoppdrag gjennom enkeltpersonforetaket mitt. Bilder, tekst og rolige animasjoner forteller kundens historie. Naturbilder, en blomstergardin og sommerfugler som følger scrollen, gir siden et personlig uttrykk. Bygget med React, TypeScript og Tailwind CSS, med tilpasninger for redusert bevegelse."
+    },
+    "en": {
+      "title": "Anne Berit Kristiansen",
+      "shortText": "A simple storytelling website built for a client through my sole proprietorship.",
+      "longText": "A simple, responsive website built for Anne Berit Kristiansen as a client project through my sole proprietorship. Images, text and gentle animations tell the client’s story. Nature photography, a curtain of flowers and butterflies that follow the scroll give the site a personal feel. Built with React, TypeScript and Tailwind CSS, with support for reduced motion preferences."
+    }
+  },
+  "buttons": [
+    {
+      "previewUrl": "https://anneberitkristiansen.no/",
+      "label": {
+        "no": "Åpne live preview",
+        "en": "Open live preview"
+      },
+      "ariaLabel": {
+        "no": "Åpne nettsiden til Anne Berit Kristiansen som live preview",
+        "en": "Open the Anne Berit Kristiansen website as a live preview"
+      }
+    },
+    {
+      "href": "https://anneberitkristiansen.no/",
+      "label": {
+        "no": "Besøk nettsiden",
+        "en": "Visit the website"
+      },
+      "ariaLabel": {
+        "no": "Besøk nettsiden til Anne Berit Kristiansen i en ny fane",
+        "en": "Visit the Anne Berit Kristiansen website in a new tab"
+      }
+    },
+    {
+      "href": "https://github.com/kristianGjertsen/Anne-Berit-Kristiansen",
+      "label": {
+        "no": "Se GitHub-repo",
+        "en": "View GitHub repo"
+      },
+      "ariaLabel": {
+        "no": "Åpne GitHub-repo for Anne Berit Kristiansen",
+        "en": "Open the GitHub repository for Anne Berit Kristiansen"
+      }
+    }
+  ]
+}
