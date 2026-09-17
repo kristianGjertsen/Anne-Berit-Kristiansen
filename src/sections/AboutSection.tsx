@@ -51,13 +51,12 @@ export function AboutSection() {
               </p>
               <p>
                 Jeg er glad i å oppdage nye steder og bli kjent med menneskene jeg
-                møter underveis. Frankrike har en helt spesiell plass i hjertet
-                mitt etter at jeg bodde i Montpellier i Sør-Frankrike. Italia og
-                Portugal er også land jeg gjerne vender tilbake til.
+                møter underveis. Italia er favoritten min, og et land jeg alltid
+                gleder meg til å reise tilbake til.
               </p>
               <p>
                 Når jeg ikke er på reise, liker jeg å holde meg i aktivitet med
-                trening og lange turer – enten langs sjøen, i skogen eller på fjellet.
+                trening og lange turer, enten langs sjøen, i skogen eller på fjellet.
               </p>
               <p>
                 Jeg trives sammen med andre og setter pris på gode samtaler og

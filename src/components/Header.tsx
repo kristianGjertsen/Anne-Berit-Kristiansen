@@ -130,7 +130,7 @@ export function Header() {
         <div className="flex min-h-20 items-center justify-between gap-4 border-b-2 border-foreground/50 py-4 md:min-h-25">
           <a
             href="#hjem"
-            aria-label="Anne Berit Kristiansen – hjem"
+            aria-label="Anne Berit Kristiansen - hjem"
             onClick={onNavigate}
             className="font-serif text-4xl font-semibold"
           >
