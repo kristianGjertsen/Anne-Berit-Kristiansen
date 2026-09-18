@@ -8,4 +8,4 @@ Nettsiden gir et innblikk i Anne Berits bakgrunn fra reiseliv, kultur og mediebr
 
 Siden består av en introduksjon, en personlig presentasjon, et blikk mot neste tur og kontaktinformasjon.
 
-Prosjektet er også et forsøk på scrollytelling, der historien utfolder seg mens man scroller.
+Prosjektet er også et forsøk på scrollytelling, der historien elementer reagerer på scrollingen.
