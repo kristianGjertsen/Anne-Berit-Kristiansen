@@ -127,10 +127,10 @@ export function Header() {
   return (
     <header
       ref={headerRef}
-      className={`fixed rounded-xl ml-4 mr-4 inset-x-0 top-0 z-20 text-header backdrop-blur-2xl backdrop-saturate-100 bg-background/20`}
+      className={`fixed rounded-xl ml-4 mr-4 inset-x-0 top-0 z-20 text-header backdrop-blur-lg backdrop-saturate-100 shadow-2xl bg-background/20`}
     >
       <Container>
-        <div className="flex min-h-16 items-center justify-between gap-4 border-b border-foreground/15 py-1.5 md:min-h-18 md:py-2">
+        <div className="flex min-h-16 items-center justify-between gap-4 py-1.5 md:min-h-18 md:py-2">
           <a
             href="#hjem"
             aria-label="Anne Berit Kristiansen - hjem"

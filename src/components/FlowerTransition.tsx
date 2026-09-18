@@ -63,8 +63,9 @@ export function FlowerTransition({ sceneRef }: { sceneRef: RefObject<HTMLElement
           ? left + halfWidth + Math.max(topEdge, bottomEdge) + 12
           : width - left + halfWidth - Math.min(topEdge, bottomEdge) + 12
         const x = direction * clearance * opening
-        const y = (flower.offset + opening * opening * 0.3) * height
-        stem.style.transform = `translate3d(calc(-50% + ${x}px), ${y}px, 0) rotate(${rotation}deg) scaleX(${flower.mirror ? -1 : 1})`
+        // Match the initial svh offsets even when mobile text makes the scene taller.
+        const y = (flower.offset + opening * opening * 0.3) * 100
+        stem.style.transform = `translate3d(calc(-50% + ${x}px), ${y}svh, 0) rotate(${rotation}deg) scaleX(${flower.mirror ? -1 : 1})`
       })
     }
 
@@ -104,7 +105,7 @@ export function FlowerTransition({ sceneRef }: { sceneRef: RefObject<HTMLElement
         <img
           key={index}
           data-flower-stem
-          className="absolute -top-[5svh] h-(--flower-height) w-auto max-w-none origin-[50%_85%] select-none"
+          className="absolute top-[5svh] h-(--flower-height) w-auto max-w-none origin-[50%_85%] select-none lg:-top-[5svh]"
           src={flowerImage}
           alt=""
           width={1024}
