@@ -12,6 +12,16 @@ const PERCHES = [
   { word: 'tur', position: 'left-[15%]', size: 'w-[1.75em]', tilt: 'rotate-12', direction: 'right' },
 ]
 
+const SCATTERED_BUTTERFLIES = [
+  { left: 12, top: 12, size: 94, tilt: -18 },
+  { left: 76, top: 10, size: 94, tilt: 24 },
+  { left: 87, top: 38, size: 120, tilt: 18 },
+  { left: 84, top: 69, size: 82, tilt: 8 },
+  { left: 23, top: 86, size: 78, tilt: 20 },
+  { left: 52, top: 90, size: 200, tilt: 14 },
+  { left: 79, top: 92, size: 122, tilt: 26 },
+]
+
 export function JourneySection() {
   const { sectionRef, panelRef, flying } = useJourneyFlight()
   const word = (text: string) => {
@@ -40,6 +50,27 @@ export function JourneySection() {
         sticky top-0 flex min-h-[650px] flex-col justify-center px-section py-section-y
         md:min-h-[85svh] motion-reduce:static
       ">
+        {SCATTERED_BUTTERFLIES.map((butterfly, index) => (
+          <span
+            key={index}
+            data-butterfly
+            data-direction={butterfly.left < 50 ? 'left' : 'right'}
+            className="pointer-events-none absolute z-10"
+            style={{
+              left: `${butterfly.left}%`,
+              top: `${butterfly.top}%`,
+              width: `clamp(${butterfly.size * 0.55}px, ${butterfly.size / 10}vw, ${butterfly.size}px)`,
+            }}
+            aria-hidden="true"
+          >
+            <Butterfly
+              className="w-full"
+              style={{ transform: `translate(-50%, -50%) rotate(${butterfly.tilt}deg) scaleX(${butterfly.left < 50 ? -1 : 1})` }}
+              flying={flying}
+              phase={(PERCHES.length + index) * 1.4}
+            />
+          </span>
+        ))}
         <h2 className="
           mt-20 mb-16 font-serif text-[clamp(2.8rem,10vw,4.5rem)] leading-[1.6] font-normal
           tracking-tighter md:text-[clamp(3.1rem,7.5vw,8rem)]
