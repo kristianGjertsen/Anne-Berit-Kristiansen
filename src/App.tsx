@@ -1,5 +1,4 @@
 import { Header } from './components/Header'
-import { Footer } from './components/Footer'
 import { IntroSection } from './sections/IntroSection'
 import { AboutSection } from './sections/AboutSection'
 import { JourneySection } from './sections/JourneySection'
@@ -36,7 +35,6 @@ export function App() {
         <JourneySection />
         <ContactSection />
       </main>
-      <Footer />
     </div>
   )
 }
